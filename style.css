@@ -46,6 +46,8 @@ div:hover > .my-card {
 
 .my-card .front {
     background-color: #3498db;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .my-card .back {
