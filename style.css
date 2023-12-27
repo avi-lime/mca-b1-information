@@ -52,7 +52,7 @@ div:hover > .my-card {
 
 .my-card .back {
     background-color: orange;
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
 }
 
 
@@ -72,6 +72,20 @@ div:hover > .my-card {
 
 i {
     font-size: 30px;
+}
+
+.info {
+    position: absolute;
+    top: 20px;
+    left: -5px;
+}
+
+.info_list {
+    list-style-type: none;
+}
+
+.info_item {
+    font-size: 25px;
 }
 
 .overlay {
