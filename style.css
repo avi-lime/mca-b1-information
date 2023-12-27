@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
 body {
-    background-color: black;
+    background-image: linear-gradient(320.54deg, #00069F 0%, #120010 72.37%), linear-gradient(58.72deg, #69D200 0%, #970091 100%), linear-gradient(121.28deg, #8CFF18 0%, #6C0075 100%), linear-gradient(121.28deg, #8000FF 0%, #000000 100%), linear-gradient(180deg, #00FF19 0%, #24FF00 0.01%, #2400FF 100%), linear-gradient(52.23deg, #0500FF 0%, #FF0000 100%), linear-gradient(121.28deg, #32003A 0%, #FF4040 100%), radial-gradient(50% 72.12% at 50% 50%, #EB00FF 0%, #110055 100%);
+background-blend-mode: screen, color-dodge, color-burn, screen, overlay, difference, color-dodge, normal;
+
 }
 
 .my-card {
@@ -51,8 +53,13 @@ div:hover > .my-card {
 }
 
 .my-card .back {
-    background-color: orange;
-    /* transform: rotateY(180deg); */
+    /* background-color: orange; */
+    background-color: #000000;
+    background-image: radial-gradient( 45% 85% at 65% 65%, rgba(13, 58, 216, 0.8) 0%, rgba(0, 0, 0, 0) 100% ), radial-gradient(35% 70% at 35% 50%, #9d0303 0%, rgba(0, 0, 0, 0) 79.09%);
+
+
+
+    transform: rotateY(180deg);
 }
 
 
@@ -84,8 +91,8 @@ i {
     list-style-type: none;
 }
 
-.info_item {
-    font-size: 25px;
+.info_item.mail {
+    font-size: 16px;
 }
 
 .overlay {
