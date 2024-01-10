@@ -1,12 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&family=Poppins&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
-body {
-    background-image: linear-gradient(320.54deg, #00069F 0%, #120010 72.37%), linear-gradient(58.72deg, #69D200 0%, #970091 100%), linear-gradient(121.28deg, #8CFF18 0%, #6C0075 100%), linear-gradient(121.28deg, #8000FF 0%, #000000 100%), linear-gradient(180deg, #00FF19 0%, #24FF00 0.01%, #2400FF 100%), linear-gradient(52.23deg, #0500FF 0%, #FF0000 100%), linear-gradient(121.28deg, #32003A 0%, #FF4040 100%), radial-gradient(50% 72.12% at 50% 50%, #EB00FF 0%, #110055 100%);
-background-blend-mode: screen, color-dodge, color-burn, screen, overlay, difference, color-dodge, normal;
 
+body {
+    padding-top: 70px;
 }
 
-.my-card {
+.bg {
+    background-image: linear-gradient(320.54deg, #00069F 0%, #120010 72.37%), linear-gradient(58.72deg, #69D200 0%, #970091 100%), linear-gradient(121.28deg, #8CFF18 0%, #6C0075 100%), linear-gradient(121.28deg, #8000FF 0%, #000000 100%), linear-gradient(180deg, #00FF19 0%, #24FF00 0.01%, #2400FF 100%), linear-gradient(52.23deg, #0500FF 0%, #FF0000 100%), linear-gradient(121.28deg, #32003A 0%, #FF4040 100%), radial-gradient(50% 72.12% at 50% 50%, #EB00FF 0%, #110055 100%);
+    background-blend-mode: screen, color-dodge, color-burn, screen, overlay, difference, color-dodge, normal;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+nav {
+    transition: background 0.5s ease-in-out;
+}
+
+
+.nav-item {
+    display: inline-block;
+    position: relative;
+    color: white;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-item:has(.active)::after {
+    transform: scaleX(1)
+}
+
+.nav-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.row {
+    transition: all ease-in-out;
+}
+
+.row .my-card {
     margin: 2rem;
     perspective: 1000px;
     height: 400px;
@@ -18,11 +65,12 @@ background-blend-mode: screen, color-dodge, color-burn, screen, overlay, differe
     transition: transform 0.9s;
 }
 
-div:hover > .my-card {
-    transform: rotateY(180deg);
+.row div:hover>.my-card {
+    transform: rotateY(180deg) scale(1.1);
+    cursor: pointer;
 }
 
-.my-card .card-face {
+.row .my-card .card-face {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -33,37 +81,36 @@ div:hover > .my-card {
     font-size: 20px;
     color: #fff;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.9s;
     background-position: 50% 0;
 
 }
 
-.my-card .front,
-.my-card .back {
+.row .my-card .front,
+.row .my-card .back {
     width: 100%;
     height: 100%;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
-.my-card .front {
-    background-color: #3498db;
+.row .my-card .front {
+    background-color: orange;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.my-card .back {
+.row .my-card .back {
     /* background-color: orange; */
     background-color: #000000;
-    background-image: radial-gradient( 45% 85% at 65% 65%, rgba(13, 58, 216, 0.8) 0%, rgba(0, 0, 0, 0) 100% ), radial-gradient(35% 70% at 35% 50%, #9d0303 0%, rgba(0, 0, 0, 0) 79.09%);
-
+    background-image: radial-gradient(45% 85% at 65% 65%, rgba(13, 58, 216, 0.8) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(35% 70% at 35% 50%, #9d0303 0%, rgba(0, 0, 0, 0) 79.09%);
 
 
     transform: rotateY(180deg);
 }
 
 
-.social-links {
+.row .social-links {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -72,7 +119,7 @@ div:hover > .my-card {
     bottom: 10px;
 }
 
-.social-links a {
+.row .social-links a {
     text-decoration: none;
     color: #fff;
 }
@@ -97,14 +144,15 @@ i {
 
 .overlay {
     height: 100%;
-    width: 100%;background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+    width: 100%;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
     border-radius: 10px;
 }
+
 h3 {
     position: absolute;
     font-family: 'Poppins';
-    align-items: center;
-    margin-top: 100%;
+    bottom: 10px;
     /* background-color: rgba(0, 0, 0, 0.554); */
 }

@@ -1,0 +1,70 @@
+{
+    "students": [
+        {
+            "name": "John Doe",
+            "libID": "johnd123",
+            "email": "john.doe@gmail.com",
+            "github": "https://github.com/johndoe",
+            "portfolio": "https://johndoe.github.io/portfolio",
+            "linkedin": "https://www.linkedin.com/in/johndoe",
+            "youtube": "",
+            "instagram": "",
+            "twitter": ""
+        },
+        {
+            "name": "Jane Smith",
+            "libID": "janes123",
+            "email": "jane.smith@gmail.com",
+            "github": "https://github.com/janesmith",
+            "portfolio": "https://janesmith.github.io/portfolio",
+            "linkedin": "https://www.linkedin.com/in/janesmith",
+            "youtube": "https://www.youtube.com/channel/janesmith",
+            "instagram": "https://www.instagram.com/janesmith",
+            "twitter": "https://twitter.com/janesmith"
+        },
+        {
+            "name": "Alice Johnson",
+            "libID": "alicej123",
+            "email": "alice.johnson@gmail.com",
+            "github": "https://github.com/alicejohnson",
+            "portfolio": "https://alicejohnson.github.io/portfolio",
+            "linkedin": "https://www.linkedin.com/in/alicejohnson",
+            "youtube": "",
+            "instagram": "",
+            "twitter": ""
+        },
+        {
+            "name": "Michael Brown",
+            "libID": "michaelb123",
+            "email": "michael.brown@gmail.com",
+            "github": "https://github.com/michaelbrown",
+            "portfolio": "https://michaelbrown.github.io/portfolio",
+            "linkedin": "https://www.linkedin.com/in/michaelbrown",
+            "youtube": "https://www.youtube.com/channel/michaelbrown",
+            "instagram": "https://www.instagram.com/michaelbrown",
+            "twitter": "https://twitter.com/michaelbrown"
+        },
+        {
+            "name": "Emily Johnson",
+            "libID": "emilyj123",
+            "email": "emily.johnson@gmail.com",
+            "github": "https://github.com/emilyjohnson",
+            "portfolio": "https://emilyjohnson.github.io/portfolio",
+            "linkedin": "https://www.linkedin.com/in/emilyjohnson",
+            "youtube": "",
+            "instagram": "",
+            "twitter": ""
+        },
+        {
+            "name": "David Williams",
+            "libID": "davidw123",
+            "email": "david.williams@gmail.com",
+            "github": "https://github.com/davidwilliams",
+            "portfolio": "https://davidwilliams.github.io/portfolio",
+            "linkedin": "https://www.linkedin.com/in/davidwilliams",
+            "youtube": "https://www.youtube.com/channel/davidwilliams",
+            "instagram": "https://www.instagram.com/davidwilliams",
+            "twitter": "https://twitter.com/davidwilliams"
+        }
+    ]
+}

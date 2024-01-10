@@ -1,11 +1,16 @@
-
 $.ajax({
     type: "get",
     url: "mca_info.csv",
     success: function (response) {
-        let list = ``;
+        let list = `<div class="row">`;
         let students = $.csv.toObjects(response);
-        students.sort().forEach(student => {
+        students.sort((a, b) => {
+            let fa = a["Name"].toLowerCase(), fb = b["Name"].toLowerCase();
+            if (fa > fb) return 1;
+            else if (fb > fa) return -1;
+            else return 0
+        }).forEach(student => {
+
             let name = student["Name"]
             let firstName = name.split(" ")[0]
             let email = student["Email Address"]
@@ -30,8 +35,7 @@ $.ajax({
                 "youtube": youtube
             }
 
-            list += `
-                <div class="col-md-4 col-lg-4 col-sm-6 mb-4">
+            list += `<div class="col-md-6 col-lg-4 col-sm-12 mb-4">
                 <div class="my-card mx-auto">
                     <div class="card-face front"
                         style="background-image:url('${imageLink}')">
@@ -43,17 +47,17 @@ $.ajax({
                             <ul class="info_list">
                                 <li class="info_item"><b>${name}</b></li>
                                 <li class="info_item">${libID}</li>
-                                <li class="info_item mail">${email}</li>
-                                <li class="info_item mail">${kietmail}</li>
-                                <li class="info_item"><a href='${portfolio}' target="_blank">Portfolio</a></li>
+                                <li class="info_item mail"><a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="mailto:${email}">${email}</a></li>
+                                <li class="info_item mail"><a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="mailto:${kietmail}">${kietmail}</a></li>
+                                <li class="info_item"><a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href='${portfolio}' target="_blank">Portfolio</a></li>
                             </ul>
                         </div>
                         <div class="social-links">
                     `
-            for (const [key, value] of Object.entries(socials)) {
+            $.each(socials, (key, value) => {
                 if (value != '')
-                    list += `<a href=${value} target="_blank"> <i class="bi bi-${key}"></i><a>`
-            }
+                    list += `<a href=${value} target="_blank"> <i class="bi bi-${key}"></i></a>`
+            })
 
             list += `
                         </div>
@@ -61,9 +65,30 @@ $.ajax({
                 </div>
             </div>
                 `
+            // Add to the card deck.
+
 
         })
-
-        $(".row").html(list)
+        list += "</div>"
+        console.log(list)
+        $(".container").html(list)
+        $('.row').trigger('create');
     }
 });
+
+$(window).scroll(() => {
+    if (scrollY > 0) {
+        $("nav").css("background", "#000")
+    } else {
+        $("nav").css("background", "none")
+    }
+
+
+})
+
+$(document).ready(() => {
+    $(".nav-item").click((e) => {
+        $(".active").removeClass("active")
+        $(e.target).addClass("active")
+    })
+})
