@@ -1,3 +1,4 @@
+
 $.ajax({
     type: "get",
     url: "mca_info.csv",
@@ -14,18 +15,16 @@ $.ajax({
             let name = student["Name"]
             let firstName = name.split(" ")[0]
             let email = student["Email Address"]
-            let image = new URL(student["Passport Size Image"])
-            let imageID = image.searchParams.get('id')
-            let imageLink = `https://drive.google.com/uc?id=${imageID}`
+            let image = student["Passport Size Image"]
             let kietmail = student["College Email I'd"]
             let libID = student["Library I'D"]
-            let github = student["Github"]
+            let github = student["Github Link"]
             let portfolio = student["Github Portfolio Link"]
             let linkedin = student["LinkedIn Profile Link"]
             let facebook = student["Facebook Profile Link"]
             let instagram = student["Instagram Profile Link"]
             let twitter = student["Twitter Profile Link"]
-            let youtube = student["Youtube Channel Link"]
+            let youtube = student["YouTube Channel Link"]
             let socials = {
                 "facebook": facebook,
                 "twitter": twitter,
@@ -38,7 +37,7 @@ $.ajax({
             list += `<div class="col-md-6 col-lg-4 col-sm-12 mb-4">
                 <div class="my-card mx-auto">
                     <div class="card-face front"
-                        style="background-image:url('${imageLink}')">
+                        style="background-image:url('images/${image}')">
                         <div class="overlay"></div>
                         <h3 class="h3 text-center">${firstName}</h3>
                     </div>
@@ -56,7 +55,7 @@ $.ajax({
                     `
             $.each(socials, (key, value) => {
                 if (value != '')
-                    list += `<a href=${value} target="_blank"> <i class="bi bi-${key}"></i></a>`
+                    list += `<a href="${value}" target="_blank"> <i class="bi bi-${key}"></i></a>`
             })
 
             list += `
@@ -70,7 +69,6 @@ $.ajax({
 
         })
         list += "</div>"
-        console.log(list)
         $(".container").html(list)
         $('.row').trigger('create');
     }
